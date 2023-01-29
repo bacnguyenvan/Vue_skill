@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>End: {{ showTime.toLocaleString() }}</h1>
+    <EndTime :endTime="showTime"/>
     <h1>Enrollment Closes In:</h1>
     <div class="time-number">
       <span>{{ showDays }}</span> : 
@@ -18,6 +19,7 @@
 </template>
 
 <script>
+import EndTime from './EndTime.vue'
 export default {
   name: 'HelloWorld',
   data() {
@@ -26,13 +28,20 @@ export default {
       showHours: 0,
       showMinutes: 0,
       showSeconds: 0,
-      showTime: new Date(2023, 0, 29, 15, 18, 10)
+      showTime: new Date(2023, 0, 29, 21, 25, 10)
     }
   },
+  components: {
+    EndTime,
+  },
   mounted() {
+    this.sendTime()
     this.showRemaining()
   },
   methods: {
+    sendTime() {
+      this.$emit('sendTime', this.showTime);
+    },
     showRemaining() {
       const timer = setInterval(() => {
         const now = new Date()
