@@ -12,7 +12,7 @@ Advanced Project ideas
 	Library Website
 	Dashboard
 	2D Multiplayer Game
-Chat Website
+	Chat Website
 	Expert project ideas
 	DevMeetUp Website
 	E-commerce Website
