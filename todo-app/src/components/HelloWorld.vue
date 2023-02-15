@@ -8,12 +8,12 @@
     </div>
     <ul class="todo">
       <li v-for="(todo, index) in todoList" :key="index">
-        <input type="checkbox" />
-        <span>{{ todo }}</span>
+        <input type="checkbox" :value="index" v-model="todo.done"/>
+        <span :class="{done: todo.done }">{{ todo.title }}</span>
         <button @click="removeTodo(todo)">Remove</button>
       </li>
     </ul>
-    <button class="remove-selected">Remove selected</button>
+    <button class="remove-selected" @click="removeSelected">Remove selected</button>
   </div>
 </template>
 
@@ -26,16 +26,28 @@ export default {
   data() {
     return {
       todoList: [
-        'Travel',
-        'Learn Vue',
-        'Save the world'
+        {
+          "done": false,
+          "title": "Travel"
+        },
+        {
+          "done": true,
+          "title": "Learn Vue"
+        },
+        {
+          "done": false,
+          "title": "Save the world"
+        },
       ],
       newTodo: ''
     }
   },
   methods: {
     addTodo() {
-      this.todoList.push(this.newTodo)
+      this.todoList.push({
+        'done': false,
+        'title': this.newTodo
+      })
       this.newTodo = ''
     },
     removeTodo(todo) {
@@ -44,7 +56,15 @@ export default {
         this.todoList.splice(index, 1); // 2nd parameter means remove one item only
       }
     },
-  }
+    removeSelected() {
+      console.log('to: ', this.todoList)
+      this.todoList.forEach((element) => {
+        if(element.done) {
+          this.removeTodo(element)
+        }
+      })
+    }
+  },
 }
 </script>
 
@@ -59,5 +79,8 @@ export default {
   }
   .todo li span {
     width: 10%;
+  }
+  .todo .done {
+    text-decoration: line-through;
   }
 </style>
