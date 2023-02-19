@@ -57,7 +57,6 @@ export default {
       }
     },
     removeSelected() {
-      console.log('to: ', this.todoList)
       this.todoList.forEach((element) => {
         if(element.done) {
           this.removeTodo(element)
