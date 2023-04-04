@@ -79,6 +79,7 @@ button.play-btn {
   border-radius: 4px;
   font-weight: bold;
   color: white;
+  cursor: pointer;
 }
 
 button.next-btn {
