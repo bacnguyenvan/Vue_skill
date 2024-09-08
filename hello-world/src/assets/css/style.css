@@ -1,0 +1,10 @@
+.app-container {
+    width: 90%;
+    background: antiquewhite;
+    margin: auto;
+    padding: 10px;
+}
+
+.center {
+    text-align: center;
+}
