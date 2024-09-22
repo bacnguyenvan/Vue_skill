@@ -24,7 +24,7 @@ export default {
             uploadStatus: '',
             isLoading: false,
             progress: 0,
-            chunkSize: 1024 * 1024 * 2, // 2MB per chunk
+            chunkSize: 1024 * 1024 * 5, // 2MB per chunk
         };
     },
     methods: {
@@ -56,7 +56,7 @@ export default {
                 formData.append('total_chunks', totalChunks);
 
                 try {
-                    await axios.post('http://127.0.0.1:8000/api/upload-chunk', formData, {
+                    await axios.post('https://jet-api-dev.ethan-tech.asia/v1/upload-chunk', formData, {
                         headers: {
                             'Content-Type': 'multipart/form-data',
                             'Accept' : 'application/json'

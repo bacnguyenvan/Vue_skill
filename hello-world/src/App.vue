@@ -31,6 +31,12 @@
     </div>
   </router-link>
 
+  <router-link class="link" to="/chat">
+    <div>
+      <p>Chat</p>
+    </div>
+  </router-link>
+
   <router-link class="link" to="/upload">
     <div>
       <p>Upload</p>
